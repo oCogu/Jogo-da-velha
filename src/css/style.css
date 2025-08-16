@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* grade central horizontalmente */
+  align-items: center;     /* grade central verticalmente */
+  background: url("/src/imgs/mesh-104.png") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+/* ===== FORM no canto superior esquerdo ===== */
+.form {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 280px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.3);
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* elementos alinhados à esquerda */
+  gap: 10px;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+label {
+  font-size: 13px;
+  color: #d9ffd9;
+}
+
+input {
+  padding: 5px 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  outline: none;
+  font-size: 13px;
+  width: 100%;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border: 2px solid #ef9f70;
+}
+
+.separator {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin: 5px 0;
+}
+
+button[type="submit"] {
+  background: #ef9f70;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #121212;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #ef9f70;
+}
+
+/* ===== GRADE CENTRAL ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 12px;
+  justify-content: center;
+  align-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
+
+.grid button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #55504e;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.grid button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  body {
+    flex-direction: column;   /* empilha elementos verticalmente */
+    justify-content: flex-start; /* começa do topo */
+    padding: 20px 10px;
+  }
+
+  .form {
+    position: relative;       /* deixa o form fluir no topo */
+    top: 0;
+    left: 0;
+    width: 100%;              /* ocupa largura total do celular */
+    max-width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;      /* espaço entre form e grade */
+  }
+
+  .form form {
+    gap: 8px;                 /* menor espaço interno */
+    align-items: center;      /* centraliza inputs no mobile */
+  }
+
+  input {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  button[type="submit"] {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+    gap: 8px;
+    padding: 10px;
+    justify-content: center;  /* centraliza horizontalmente */
+    align-content: center;    /* centraliza verticalmente dentro da grid */
+  }
+
+  .grid button {
+    font-size: 1.5rem;
+    border-radius: 10px;
+  }
+}
