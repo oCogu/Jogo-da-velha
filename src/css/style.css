@@ -2,171 +2,146 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
-  justify-content: center; /* grade central horizontalmente */
-  align-items: center;     /* grade central verticalmente */
-  background: url("./src/imgs/mesh-104.png") no-repeat center center fixed;
-  background-size: cover;
+  justify-content: center; /* centraliza horizontalmente o container principal */
+  align-items: center;     /* centraliza verticalmente */
+  background: linear-gradient(135deg, #491c1c 0%, #081b25 100%);
   overflow: hidden;
-  padding: 0;
   position: relative;
+  gap: 20px;
 }
 
-/* ===== FORM no canto superior esquerdo ===== */
+/* Formulário Glassmorphism - do tamanho do grid */
 .form {
   position: absolute;
-  top: 20px;
   left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  border-radius: 12px;
+  border-radius: 20px;
+  padding: 20px;
+  width: 270px;  /* aproximadamente o tamanho do grid */
+  height: 270px; /* aproximadamente o tamanho do grid */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 280px;
-  box-shadow: 0px 6px 15px rgba(0,0,0,0.3);
-}
-
-.form form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* elementos alinhados à esquerda */
+  justify-content: center;
   gap: 10px;
 }
 
-.player {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 100%;
-}
-
-label {
-  font-size: 13px;
-  color: #d9ffd9;
-}
-
-input {
-  padding: 5px 8px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.2);
+.form label {
   color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form input {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: none;
   outline: none;
-  font-size: 13px;
   width: 100%;
-  transition: border 0.3s;
-}
-
-input:focus {
-  border: 2px solid #ef9f70;
-}
-
-.separator {
-  font-size: 16px;
-  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.form button {
+  padding: 8px 0;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Separator "VS" */
+.separator {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
   margin: 5px 0;
 }
 
-button[type="submit"] {
-  background: #ef9f70;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #121212;
-  transition: 0.3s;
+/* Container central para o tabuleiro */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button[type="submit"]:hover {
-  background: #ef9f70;
-}
-
-/* ===== GRADE CENTRAL ===== */
+/* Grid do jogo */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 12px;
-  justify-content: center;
-  align-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  padding: 15px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 15px;
 }
 
 .grid button {
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 15px;
   font-size: 2rem;
-  font-weight: bold;
-  color: #55504e;
+  color: #fff;
   cursor: pointer;
-  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background 0.3s ease;
+  display: inline-block;
 }
 
 .grid button:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
+  transform: scale(1.1); /* aumenta 10% ao passar o mouse */
+  background: rgba(255,255,255,0.25);
 }
 
-@media (max-width: 480px) {
-  body {
-    flex-direction: column;   /* empilha elementos verticalmente */
-    justify-content: flex-start; /* começa do topo */
-    padding: 20px 10px;
-  }
+/* Botão de reset */
+body > button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
 
+body > button:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
   .form {
-    position: relative;       /* deixa o form fluir no topo */
-    top: 0;
-    left: 0;
-    width: 100%;              /* ocupa largura total do celular */
-    max-width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 20px;      /* espaço entre form e grade */
-  }
-
-  .form form {
-    gap: 8px;                 /* menor espaço interno */
-    align-items: center;      /* centraliza inputs no mobile */
-  }
-
-  input {
-    font-size: 12px;
-    padding: 4px 6px;
-  }
-
-  button[type="submit"] {
-    font-size: 12px;
-    padding: 5px 10px;
+    position: static;
+    transform: none;
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
   }
 
   .grid {
-    grid-template-columns: repeat(3, 70px);
-    grid-template-rows: repeat(3, 70px);
-    gap: 8px;
-    padding: 10px;
-    justify-content: center;  /* centraliza horizontalmente */
-    align-content: center;    /* centraliza verticalmente dentro da grid */
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 10px;
   }
-
-  .grid button {
-    font-size: 1.5rem;
-    border-radius: 10px;
-  }
-
 }

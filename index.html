@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="./src/css/style.css">
   <title>Jogo da Velha</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         <input type="text" id="player-1-name" value="Player 1" placeholder="Player 1 name">
 
         <label for="player-1-value">Símbolo:</label>
-        <input type="text" maxlength="1" id="player-1-value" value="X" placeholder="Player 1 symbol">
+        <input type="text" maxlength="2" id="player-1-value" value="X" placeholder="Player 1 symbol">
       </div>
 
       <span class="separator">VS</span>
@@ -27,7 +27,7 @@
         <input type="text" id="player-2-name" value="Player 2" placeholder="Player 2 name">
 
         <label for="player-2-value">Símbolo:</label>
-        <input type="text" maxlength="1" id="player-2-value" value="O" placeholder="Player 2 symbol">
+        <input type="text" maxlength="2" id="player-2-value" value="O" placeholder="Player 2 symbol">
       </div>
 
       <button type="submit">Aplicar</button>
@@ -35,7 +35,8 @@
   </div>
 
   <!-- Grade do jogo -->
-  <div class="grid">
+  <div class="grid-container">
+    <div class="grid">
       <button id="btn1"></button>
       <button id="btn2"></button>
       <button id="btn3"></button>
@@ -45,10 +46,10 @@
       <button id="btn7"></button>
       <button id="btn8"></button>
       <button id="btn9"></button>
+    </div>
   </div>
+  <button id="reset">↩️</button>
 
   <script src="src/javascript/script.js" type="module"></script>
 </body>
-
 </html>
-
