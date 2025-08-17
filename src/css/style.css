@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center; /* grade central horizontalmente */
   align-items: center;     /* grade central verticalmente */
-  background: url("/src/imgs/mesh-104.png") no-repeat center center fixed;
+  background: url("./src/imgs/mesh-104.png") no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
   padding: 0;
@@ -168,4 +168,5 @@ button[type="submit"]:hover {
     font-size: 1.5rem;
     border-radius: 10px;
   }
+
 }
